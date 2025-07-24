@@ -110,6 +110,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+
 # Exports
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -126,3 +127,5 @@ alias k=kubectl
 function ,, {
   cd $(git rev-parse --show-toplevel)
 }
+
+eval "$(/Users/cat/.local/bin/mise activate zsh)"

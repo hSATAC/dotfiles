@@ -1,0 +1,6 @@
+[tools]
+"aqua:gradle/gradle" = "latest"
+java = "latest"
+node = "latest"
+"npm:eas-cli" = "latest"
+"npm:expo" = "latest"
