@@ -73,6 +73,7 @@ ZSH_THEME="robbyrussell"
 plugins=(
   git
   ssh-agent
+  direnv
 )
 
 zstyle :omz:plugins:ssh-agent identities id_rsa
