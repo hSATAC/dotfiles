@@ -7,10 +7,14 @@ brew "volta"
 brew "cocoapods"
 brew "ack"
 brew "yamlfmt"
+brew "fastlane"
+brew "tig"
+
 cask "claude-code"
 cask "gpg-suite"
 cask "orbstack"
 cask "ngrok"
+cask "gcloud-cli"
 
 tap "f1bonacc1/tap"
 brew "process-compose"
@@ -31,6 +35,10 @@ cask "scroll-reverser"
 cask "jordanbaird-ice"
 cask "hammerspoon"
 
+tap "lihaoyun6/tap"
+cask "airbattery"
+
 # Other
 cask "telegram"
 cask "discord"
+cask "zoom"
