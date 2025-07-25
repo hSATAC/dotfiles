@@ -74,6 +74,16 @@ plugins=(
   git
   ssh-agent
   direnv
+  mise
+  # Custom plugins below
+  # git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+  # git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting\n\n
+  # git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
+  # git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $ZSH_CUSTOM/plugins/zsh-autocomplete
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  fast-syntax-highlighting
+  zsh-autocomplete
 )
 
 zstyle :omz:plugins:ssh-agent identities id_rsa
@@ -82,43 +92,13 @@ zstyle :omz:plugins:ssh-agent lifetime 24h
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch $(uname -m)"
-
-# Set personal aliases, overriding those provided by Oh My Zsh libs,
-# plugins, and themes. Aliases can be placed here, though Oh My Zsh
-# users are encouraged to define aliases within a top-level file in
-# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
-# - $ZSH_CUSTOM/aliases.zsh
-# - $ZSH_CUSTOM/macos.zsh
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-
 # Exports
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export GPG_TTY=$(tty)
 export CLICOLOR=1
 export LSCOLORS="ExGxfxfxCxdxdxhbadbxbd"
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
-export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=250"
 
 # Alias
 alias k=kubectl
@@ -127,5 +107,3 @@ alias k=kubectl
 function ,, {
   cd $(git rev-parse --show-toplevel)
 }
-
-eval "$(/Users/cat/.local/bin/mise activate zsh)"
