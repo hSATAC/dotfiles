@@ -6,4 +6,5 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 
 # PATH
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.volta/bin:$PATH"

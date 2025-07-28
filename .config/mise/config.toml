@@ -1,5 +1,6 @@
 [tools]
 "aqua:gradle/gradle" = "latest"
+go = "1.23"
 java = "latest"
 node = "latest"
 "npm:eas-cli" = "latest"

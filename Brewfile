@@ -38,6 +38,8 @@ cask "hammerspoon"
 tap "lihaoyun6/tap"
 cask "airbattery"
 
+tap "buo/cask-upgrade"
+
 # Other
 cask "telegram"
 cask "discord"
