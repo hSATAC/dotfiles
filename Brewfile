@@ -1,5 +1,6 @@
 # Developer
 brew "git"
+brew "git-lfs"
 brew "diff-so-fancy"
 brew "gemini-cli"
 brew "direnv"
@@ -9,12 +10,14 @@ brew "ack"
 brew "yamlfmt"
 brew "fastlane"
 brew "tig"
+brew "gh"
 
 cask "claude-code"
 cask "gpg-suite"
 cask "orbstack"
 cask "ngrok"
 cask "gcloud-cli"
+cask "jetbrains-toolbox"
 
 tap "f1bonacc1/tap"
 brew "process-compose"
@@ -28,6 +31,7 @@ cask "setapp"
 
 # Work
 cask "slack"
+cask "drata-agent"
 
 # Handy tools
 cask "sizeup"
