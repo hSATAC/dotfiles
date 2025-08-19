@@ -11,6 +11,8 @@ brew "yamlfmt"
 brew "fastlane"
 brew "tig"
 brew "gh"
+brew "yq"
+brew "wget"
 
 cask "claude-code"
 cask "gpg-suite"
@@ -28,6 +30,7 @@ cask "1password"
 cask "iterm2"
 cask "cursor"
 cask "setapp"
+cask "monitorcontrol"
 
 # Work
 cask "slack"
