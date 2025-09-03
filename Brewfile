@@ -13,6 +13,7 @@ brew "tig"
 brew "gh"
 brew "yq"
 brew "wget"
+brew "withgraphite/tap/graphite"
 
 cask "claude-code"
 cask "gpg-suite"
@@ -20,6 +21,7 @@ cask "orbstack"
 cask "ngrok"
 cask "gcloud-cli"
 cask "jetbrains-toolbox"
+cask "gitify"
 
 tap "f1bonacc1/tap"
 brew "process-compose"
@@ -35,6 +37,7 @@ cask "monitorcontrol"
 # Work
 cask "slack"
 cask "drata-agent"
+cask "expo-orbit"
 
 # Handy tools
 cask "sizeup"
