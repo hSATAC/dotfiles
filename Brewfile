@@ -21,10 +21,12 @@ cask "orbstack"
 cask "ngrok"
 cask "gcloud-cli"
 cask "jetbrains-toolbox"
-cask "gitify"
 
 tap "f1bonacc1/tap"
 brew "process-compose"
+
+tap "menubar-apps/menubar-apps"
+cask "pullbar"
 
 # Necessary tools
 cask "google-chrome"
