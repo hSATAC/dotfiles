@@ -14,6 +14,9 @@ brew "gh"
 brew "yq"
 brew "wget"
 brew "withgraphite/tap/graphite"
+brew "ffmpeg"
+brew "libpq", link: true
+brew "codex"
 
 cask "claude-code"
 cask "gpg-suite"
@@ -35,6 +38,7 @@ cask "iterm2"
 cask "cursor"
 cask "setapp"
 cask "monitorcontrol"
+cask "logi-options+"
 
 # Work
 cask "slack"
