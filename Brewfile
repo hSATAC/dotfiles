@@ -16,14 +16,14 @@ brew "wget"
 brew "withgraphite/tap/graphite"
 brew "ffmpeg"
 brew "libpq", link: true
-brew "codex"
-
+brew "cloud-sql-proxy"
+cask "codex"
+cask "antigravity"
 cask "claude-code"
 cask "gpg-suite"
 cask "orbstack"
 cask "ngrok"
 cask "gcloud-cli"
-cask "jetbrains-toolbox"
 
 tap "f1bonacc1/tap"
 brew "process-compose"
@@ -39,6 +39,7 @@ cask "cursor"
 cask "setapp"
 cask "monitorcontrol"
 cask "logi-options+"
+cask "typeless"
 
 # Work
 cask "slack"
