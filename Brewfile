@@ -31,9 +31,6 @@ brew "process-compose"
 tap "menubar-apps/menubar-apps"
 cask "pullbar"
 
-tap "steveyegge/beads"
-brew "steveyegge/beads/bd"
-
 # Necessary tools
 cask "google-chrome"
 cask "1password"
