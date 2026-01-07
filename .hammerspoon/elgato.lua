@@ -10,19 +10,15 @@ local LIGHTS = {
 
 local PORT = 9123
 local BRIGHTNESS_STEP = 10  -- adjust by 10% each step
+local DEFAULT_BRIGHTNESS = 70
+
+-- Local state cache (shared across all lights for simplicity)
+local cachedBrightness = DEFAULT_BRIGHTNESS
+local cachedLightOn = false
 
 -- Helper: build URL for a light
 local function lightUrl(ip)
     return string.format("http://%s:%d/elgato/lights", ip, PORT)
-end
-
--- Helper: execute curl and return parsed JSON
-local function curlGet(url)
-    local output, status = hs.execute(string.format("curl -s '%s'", url))
-    if status and output then
-        return hs.json.decode(output)
-    end
-    return nil
 end
 
 -- Helper: execute curl PUT with JSON body
@@ -33,69 +29,72 @@ local function curlPut(url, body)
     return status
 end
 
--- Toggle light on/off
-local function toggleLight(ip)
+-- Turn off light
+local function turnOffLight(ip)
     local url = lightUrl(ip)
-    local data = curlGet(url)
-    if data and data.lights and data.lights[1] then
-        local currentState = data.lights[1].on
-        local newState = (currentState == 1) and 0 or 1
-        local body = {
-            lights = {
-                { on = newState }
-            }
+    local body = {
+        lights = {
+            { on = 0 }
         }
-        curlPut(url, body)
-        log.i(string.format("Light %s toggled to %s", ip, newState == 1 and "ON" or "OFF"))
-    else
-        log.e("Failed to get light state for " .. ip)
-    end
+    }
+    curlPut(url, body)
+    log.i(string.format("Light %s turned OFF", ip))
 end
 
--- Adjust brightness
-local function adjustBrightness(ip, delta)
+-- Set brightness (also turns light on)
+local function setBrightness(ip, brightness)
     local url = lightUrl(ip)
-    local data = curlGet(url)
-    if data and data.lights and data.lights[1] then
-        local current = data.lights[1].brightness or 50
-        local newBrightness = math.max(0, math.min(100, current + delta))
-        local body = {
-            lights = {
-                { brightness = newBrightness }
-            }
+    local body = {
+        lights = {
+            { on = 1, brightness = brightness }
         }
-        curlPut(url, body)
-        log.i(string.format("Light %s brightness: %d -> %d", ip, current, newBrightness))
-    else
-        log.e("Failed to get light state for " .. ip)
-    end
+    }
+    curlPut(url, body)
+    log.i(string.format("Light %s brightness set to %d", ip, brightness))
 end
 
--- Toggle all lights
-local function toggleAllLights()
+-- Turn off all lights
+local function turnOffAllLights()
     for _, ip in ipairs(LIGHTS) do
-        toggleLight(ip)
+        turnOffLight(ip)
     end
+    cachedLightOn = false
 end
 
 -- Raise brightness for all lights
 local function raiseBrightness()
-    for _, ip in ipairs(LIGHTS) do
-        adjustBrightness(ip, BRIGHTNESS_STEP)
+    -- Skip only if light is on AND already at max
+    if cachedLightOn and cachedBrightness >= 100 then
+        log.i("Brightness already at max (100), skipping")
+        return
     end
+
+    cachedBrightness = math.min(100, cachedBrightness + BRIGHTNESS_STEP)
+    for _, ip in ipairs(LIGHTS) do
+        setBrightness(ip, cachedBrightness)
+    end
+    cachedLightOn = true
 end
 
 -- Lower brightness for all lights
 local function lowerBrightness()
-    for _, ip in ipairs(LIGHTS) do
-        adjustBrightness(ip, -BRIGHTNESS_STEP)
+    -- Skip only if light is on AND already at min
+    if cachedLightOn and cachedBrightness <= 0 then
+        log.i("Brightness already at min (0), skipping")
+        return
     end
+
+    cachedBrightness = math.max(0, cachedBrightness - BRIGHTNESS_STEP)
+    for _, ip in ipairs(LIGHTS) do
+        setBrightness(ip, cachedBrightness)
+    end
+    cachedLightOn = true
 end
 
--- Knob pressed: toggle the elgato key light mini
+-- Knob pressed: turn off the elgato key light mini
 hs.hotkey.bind({}, "F18", function()
-    log.i("F16 pressed - toggling lights")
-    toggleAllLights()
+    log.i("F18 pressed - turning off lights")
+    turnOffAllLights()
 end)
 
 -- Knob turned clockwise: raise the light level
