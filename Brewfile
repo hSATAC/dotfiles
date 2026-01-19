@@ -17,6 +17,7 @@ brew "withgraphite/tap/graphite"
 brew "ffmpeg"
 brew "libpq", link: true
 brew "cloud-sql-proxy"
+brew "redis"
 cask "codex"
 cask "antigravity"
 cask "claude-code"

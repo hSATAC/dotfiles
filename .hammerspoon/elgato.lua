@@ -61,6 +61,23 @@ local function turnOffAllLights()
     cachedLightOn = false
 end
 
+-- Turn on all lights with cached brightness
+local function turnOnAllLights()
+    for _, ip in ipairs(LIGHTS) do
+        setBrightness(ip, cachedBrightness)
+    end
+    cachedLightOn = true
+end
+
+-- Toggle all lights (default to ON if no state)
+local function toggleAllLights()
+    if cachedLightOn then
+        turnOffAllLights()
+    else
+        turnOnAllLights()
+    end
+end
+
 -- Raise brightness for all lights
 local function raiseBrightness()
     -- Skip only if light is on AND already at max
@@ -91,10 +108,10 @@ local function lowerBrightness()
     cachedLightOn = true
 end
 
--- Knob pressed: turn off the elgato key light mini
+-- Knob pressed: toggle the elgato key light mini
 hs.hotkey.bind({}, "F18", function()
-    log.i("F18 pressed - turning off lights")
-    turnOffAllLights()
+    log.i("F18 pressed - toggling lights")
+    toggleAllLights()
 end)
 
 -- Knob turned clockwise: raise the light level
