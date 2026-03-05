@@ -115,3 +115,24 @@ if [ -f '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/op
 
 # Added by Antigravity
 export PATH="/Users/cat/.antigravity/antigravity/bin:$PATH"
+
+adc-staging() {
+	cp ~/.config/gcloud/adc-staging.json ~/.config/gcloud/application_default_credentials.json
+		echo "Switched to www-staging service account"
+}
+
+adc-personal() {
+	cp ~/.config/gcloud/adc-personal.json ~/.config/gcloud/application_default_credentials.json
+		echo "Switched to personal account"
+}
+
+adc-whoami() {
+	local f=~/.config/gcloud/application_default_credentials.json
+		if grep -q impersonation "$f" 2>/dev/null; then
+			echo "staging (www-staging@exponentjs)"
+				elif [[ -f "$f" ]]; then
+				echo "personal"
+		else
+			echo "no application-default credentials found"
+				fi
+}

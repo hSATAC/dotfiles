@@ -32,6 +32,12 @@ brew "process-compose"
 tap "menubar-apps/menubar-apps"
 cask "pullbar"
 
+tap "mobile-dev-inc/tap"
+brew "mobile-dev-inc/tap/maestro"
+
+tap "oven-sh/bun"
+brew "oven-sh/bun/bun"
+
 # Necessary tools
 cask "google-chrome"
 cask "1password"
@@ -40,7 +46,6 @@ cask "cursor"
 cask "setapp"
 cask "monitorcontrol"
 cask "logi-options+"
-cask "typeless"
 
 # Work
 cask "slack"
