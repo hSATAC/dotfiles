@@ -100,6 +100,10 @@ export CLICOLOR=1
 export LSCOLORS="ExGxfxfxCxdxdxhbadbxbd"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=250"
 
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
 # Alias
 alias k=kubectl
 
@@ -136,3 +140,5 @@ adc-whoami() {
 			echo "no application-default credentials found"
 				fi
 }
+export PATH=$PATH:/Users/cat/.maestro/bin
+export PATH=$PATH:/Users/cat/.maestro/bin
