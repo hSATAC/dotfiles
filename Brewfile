@@ -2,7 +2,6 @@
 brew "git"
 brew "git-lfs"
 brew "diff-so-fancy"
-brew "gemini-cli"
 brew "direnv"
 brew "volta"
 #brew "cocoapods"
@@ -20,6 +19,7 @@ brew "cloud-sql-proxy"
 brew "redis"
 brew "watchman"
 brew "xclogparser"
+brew "ruby", link: :overwrite
 cask "codex"
 cask "antigravity"
 cask "claude-code"
@@ -35,11 +35,11 @@ brew "f1bonacc1/tap/process-compose", trusted: true
 tap "menubar-apps/menubar-apps"
 cask "menubar-apps/menubar-apps/pullbar", trusted: true
 
-#tap "mobile-dev-inc/tap"
-#brew "mobile-dev-inc/tap/maestro", trusted: true
-
 tap "oven-sh/bun"
 brew "oven-sh/bun/bun", trusted: true
+
+tap "facebook/fb"
+brew "facebook/fb/idb-companion", trusted: true
 
 # Necessary tools
 cask "google-chrome"
@@ -51,6 +51,7 @@ cask "monitorcontrol"
 cask "logi-options+"
 
 # Work
+tap "expo/expo-utils", trusted: true
 cask "slack"
 cask "drata-agent"
 cask "expo-orbit"
