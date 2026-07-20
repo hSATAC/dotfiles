@@ -20,6 +20,7 @@ brew "redis"
 brew "watchman"
 brew "xclogparser"
 brew "ruby", link: :overwrite
+cask "thaw"
 cask "codex"
 cask "antigravity"
 cask "claude-code"
@@ -28,6 +29,7 @@ cask "orbstack"
 cask "ngrok"
 cask "gcloud-cli"
 cask "android-studio"
+cask "openusage"
 
 tap "f1bonacc1/tap"
 brew "f1bonacc1/tap/process-compose", trusted: true
@@ -59,7 +61,6 @@ cask "expo-orbit"
 # Handy tools
 cask "sizeup"
 cask "scroll-reverser"
-cask "jordanbaird-ice"
 cask "hammerspoon"
 
 tap "lihaoyun6/tap"
