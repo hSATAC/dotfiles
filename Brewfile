@@ -12,7 +12,6 @@ brew "tig"
 brew "gh"
 brew "yq"
 brew "wget"
-brew "withgraphite/tap/graphite", trusted: true
 brew "ffmpeg"
 brew "libpq", link: true
 brew "cloud-sql-proxy"
@@ -20,6 +19,9 @@ brew "redis"
 brew "watchman"
 brew "xclogparser"
 brew "ruby", link: :overwrite
+brew "python@3.12"
+brew "ripgrep"
+brew "m1ddc"
 cask "thaw"
 cask "codex"
 cask "antigravity"
@@ -30,18 +32,18 @@ cask "ngrok"
 cask "gcloud-cli"
 cask "android-studio"
 cask "openusage"
+cask "chatgpt"
+cask "cloudflare-warp"
+cask "bambu-studio"
 
 tap "f1bonacc1/tap"
 brew "f1bonacc1/tap/process-compose", trusted: true
 
-tap "menubar-apps/menubar-apps"
-cask "menubar-apps/menubar-apps/pullbar", trusted: true
-
 tap "oven-sh/bun"
 brew "oven-sh/bun/bun", trusted: true
 
-tap "facebook/fb"
-brew "facebook/fb/idb-companion", trusted: true
+tap "meta/fb"
+brew "meta/fb/idb-companion", trusted: true
 
 # Necessary tools
 cask "google-chrome"

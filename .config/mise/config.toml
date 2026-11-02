@@ -11,7 +11,9 @@ node = "latest"
 "pipx:claude-monitor" = "latest"
 "pipx:httpie" = "latest"
 python = "latest"
-"npm:@anthropic-ai/claude-code" = "latest"
+"npm:@anthropic-ai/claude-code" = { version = "latest", allow_builds = ["@anthropic-ai/claude-code"] }
+"pipx:git+https://github.com/hSATAC/claude-swap.git" = "feat/reset-grants"
+uv = "0.12.10"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]
